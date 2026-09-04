@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>伊利 2025 财报拆解 · 奶粉成本与营销费用（葵爸）</title>
+<script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+<style>
+  :root{ --blue:#1A4FA0; --navy:#0A1E3F; --ink:#11203a; --muted:#6b7a94; --line:#e3eaf5; --warn:#E8852B; --green:#2E9E6B; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;color:var(--ink);background:#f4f7fc;line-height:1.6}
+  .hero{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;padding:38px 20px 30px;text-align:center}
+  .hero .badge{display:inline-block;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:4px 14px;font-size:14px;opacity:.92}
+  .hero h1{font-size:26px;margin:14px 0 6px}
+  .hero p{opacity:.9;font-size:15px}
+  .wrap{max-width:900px;margin:0 auto;padding:18px 16px 50px}
+  .section{background:#fff;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 2px 10px rgba(20,40,80,.06)}
+  .section h2{font-size:19px;color:var(--blue);margin-bottom:6px}
+  .section-desc{color:var(--muted);font-size:13.5px;margin-bottom:12px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .card{background:#fff;border-radius:12px;padding:13px;border-top:3px solid var(--blue);box-shadow:0 1px 6px rgba(20,40,80,.08)}
+  .card .k{font-size:12.5px;color:var(--muted)}
+  .card .v{font-size:22px;font-weight:800;margin-top:3px;font-variant-numeric:tabular-nums}
+  .card .s{font-size:12px;color:var(--green);font-weight:600}
+  .card.warn .v{color:#d23b3b}.card.warn .s{color:#d23b3b}
+  .bar-box{width:100%;height:360px}
+  .bar-box-mid{width:100%;height:300px}
+  .chart-s{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .callout{border-left:4px solid var(--warn);background:#fff7ee;padding:12px 14px;border-radius:8px;font-size:13.5px;margin-top:12px}
+  .callout b{color:var(--warn)}
+  .callout.blue{border-left-color:var(--blue);background:#eef4ff}
+  .callout.blue b{color:var(--blue)}
+  .src a{color:var(--blue);word-break:break-all}
+  .src li{margin:6px 0;font-size:12.5px}
+  .tag{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:6px;margin-right:6px;white-space:nowrap}
+  .tag.green{background:#e6f6ee;color:var(--green)}
+  .tag.gray{background:#eef1f6;color:var(--muted)}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin-top:6px}
+  th,td{border:1px solid var(--line);padding:6px 8px;text-align:left}
+  th{background:#f2f6fd;color:var(--navy)}
+  td.n{text-align:right;font-variant-numeric:tabular-nums}
+  .hl{color:#d23b3b;font-weight:700}
+  .hlb{color:var(--blue);font-weight:700}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+</style>
+</head>
+<body>
+
+<div class='hero'>
+  <div class='badge'>葵爸 · 财报拆解（奶粉篇）</div>
+  <h1>伊利股份 2025 财报拆解：奶粉到底贵在哪</h1>
+  <p>婴配粉零售额份额全国第一，但财报从不单独披露婴配粉真实账本</p>
+</div>
+
+<div class='wrap'>
+
+  <div class='callout blue'>
+    <b>先记住一句话：</b>伊利是<b>综合乳企</b>（1156 亿营收里六成是牛奶、酸奶等液奶）。婴配粉藏在「奶粉及奶制品」这个抽屉里，而这个抽屉里还装着成人奶粉、奶酪、黄油、乳品原料，并表了控股子公司澳优乳业。所以——<b>本篇没有任何一个数字能直接等于「金领冠赚了多少」</b>，能做到的是把能核实的边界全部核清楚。
+  </div>
+
+  <!-- 卡片 -->
+  <div class='section'>
+    <h2>一图看懂 2025 关键数</h2>
+    <p class='section-desc'>全部来自巨潮披露的 2025 年年度报告（审计数，出厂口径）。</p>
+    <div class='cards'>
+      <div class='card'><div class='k'>营业总收入</div><div class='v'>1,159.31 亿</div><div class='s'>同比 +0.1%</div></div>
+      <div class='card green'><div class='k'>归母净利润</div><div class='v'>115.65 亿</div><div class='s'>同比 +36.8%（扣非 +84.1%）</div></div>
+      <div class='card'><div class='k'>整体毛利率</div><div class='v'>34.58%</div><div class='s'>2024: 33.88%</div></div>
+      <div class='card'><div class='k'>奶粉及奶制品</div><div class='v'>327.69 亿</div><div class='s'>同比 +10.4% · 毛利率 41.58%</div></div>
+      <div class='card warn'><div class='k'>广告营销费（全集团）</div><div class='v'>128.20 亿</div><div class='s'>占营收 11.1%，同比 -5.8%</div></div>
+      <div class='card'><div class='k'>婴配粉零售额份额</div><div class='v'>18.3%</div><div class='s'>终端口径 · 全国第一（+1.0pct）</div></div>
+    </div>
+  </div>
+
+  <!-- 图1 产品线 -->
+  <div class='section'>
+    <h2>图①：四大产品线：液奶是大盘，奶粉是毛利引擎</h2>
+    <p class='section-desc'>柱=营业收入（亿），线=毛利率（%）。数据：年报「主营业务分产品」表。</p>
+    <div id='chartLines' class='bar-box'></div>
+    <div class='chart-s'>奶粉及奶制品只占营收 28.3%，却贡献集团毛利 34.1%（毛利 136.24 亿）——是仅次于液奶的第二大利润来源。</div>
+  </div>
+
+  <!-- 图2 每100元 -->
+  <div class='section'>
+    <h2>图②：你付的 100 元（出厂价），伊利怎么分</h2>
+    <p class='section-desc'>按年报「报表出厂口径」还原——这是<b>出厂价</b>结构，不是超市零售价；且为<b>集团全业务加权</b>（液奶是大盘），不是奶粉、更不是婴配粉单品。</p>
+    <div id='chart100' class='bar-box'></div>
+    <div class='chart-s'>营业成本 65.42 + 销售费用 18.63 + 管理 4.06 + 研发 0.79 + 税费 0.58 + 归母净利 10.00 + 其他净收支（减值、营业外、所得税调整等）0.52 ≈ 100 元。这是集团全业务加权的简化出厂价结构；<b>销售费用约为研发的 24 倍</b>，其中广告营销费约 11.1 元。</div>
+  </div>
+
+  <!-- 图3 销售费用构成 -->
+  <div class='section'>
+    <h2>图③：128.2 亿广告营销费藏在 215.45 亿销售费用里</h2>
+    <p class='section-desc'>年报把销售费用拆得很细（附注 64，A 股强制披露）——这是飞鹤（港股）年报都没有的颗粒度。金额：亿元，全集团口径。</p>
+    <div id='chartSales' class='bar-box'></div>
+    <div class='chart-s'>广告营销费 128.20 亿 = 销售费用的一半以上（59.5%），比集团归母净利润（115.65 亿）还多 12.55 亿。职工薪酬 69.22 亿主要为销售/导购团队。</div>
+  </div>
+
+  <!-- 图4 对比 -->
+  <div class='section'>
+    <h2>图④：同样做婴配粉，四种账本（口径不同，仅供结构对照）</h2>
+    <p class='section-desc'>毛利率 / 销售费用率 / 归母净利率（%）。每一列都是<b>披露口径不同的主体</b>，看的是「商业模式差异」，严禁横向加总。</p>
+    <div id='chartCmp' class='bar-box'></div>
+    <div class='chart-s'>
+      <b>伊利集团</b>（全业务）：薄毛利 34.6% + 低费率 18.6% → 净利率 10.0%。<br>
+      <b>伊利·奶粉及奶制品分部</b>：年报仅披露收入、成本、毛利率，分部销售费用率与归母净利率<b>不披露</b>，图中显示「不披露」。<br>
+      <b>飞鹤</b>（婴配粉占营收约 87.6%，上期已核）：高毛利 65.0% + 高费率 39.5% → 净利率 10.7%。<br>
+      <b>澳优</b>（伊利控股、单独上市的奶粉为主公司）：毛利率 38.6%、费率 25.7% → 净利率仅 2.4%。<br>
+      四家主体业务纯度、费用归集范围不同，净利率并置只看商业模式方向；同一片奶粉市场，赚钱能力差在费用和打法，不在「毛利越高越赚钱」。
+    </div>
+  </div>
+
+  <!-- 图5 澳优锚 -->
+  <div class='section'>
+    <h2>图⑤：澳优：藏在伊利财报里的「奶粉答案卷」</h2>
+    <p class='section-desc'>澳优乳业是伊利控股子公司（收入全额并入伊利奶粉分部），但它在港股单独披露经审计年报——等于给家长开了一扇窗，看到伊利体系内奶粉资产真实的毛利率水位。</p>
+    <div id='chartAus' class='bar-box-mid'></div>
+    <table>
+      <tr><th>澳优 FY2025（港交所 1717.HK，经审计）</th><th class='n'>金额</th><th class='n'>占收入</th></tr>
+      <tr><td>收入</td><td class='n'>74.88 亿（+1.2%）</td><td class='n'>—</td></tr>
+      <tr><td>毛利</td><td class='n'>28.93 亿</td><td class='n'>毛利率 38.6%</td></tr>
+      <tr><td>销售及分销开支</td><td class='n'>19.26 亿</td><td class='n'>25.7%</td></tr>
+      <tr><td>研发开支</td><td class='n'>1.05 亿</td><td class='n'>1.4%</td></tr>
+      <tr><td>归母净利润</td><td class='n'>1.78 亿</td><td class='n'>归母净利率 2.4%</td></tr>
+    </table>
+    <div class='chart-s'>38.6% 是澳优<b>全集团</b>（含营养品等非奶粉业务）的加权毛利率，只作伊利体系内奶粉资产的参考水位，<b>不等于金领冠单品毛利率</b>。伊利当年收购澳优形成商誉原值 51.34 亿，截至 2025 年末减值准备账面余额 29.91 亿（此前年度计提，2025 年减值测试通过、未新增计提）。商誉减值是<b>收购溢价的账面消化</b>，不等于产品质量问题。</div>
+  </div>
+
+  <!-- 口径红线 -->
+  <div class='callout'>
+    <b>口径红线（重要）：</b>① 本文全部为<b>报表出厂口径</b>，不是终端零售价——「128 元广告费」等拆分不能直接搬去解释超市货架价；② 「奶粉及奶制品」≠ 婴配粉：含成人粉、奶酪、黄油、乳品原料及澳优并表；41.58% 是分部加权毛利率，<b>不等于金领冠毛利率</b>；③ 18.3% 是零售额份额（终端口径）、327.69 亿是出厂收入，<b>两者不可相除</b>；④ 128.2 亿广告营销费是全集团口径，婴配粉单独花了多少——年报不披露，这是披露边界，不是「查不到」；⑤ 高毛利 ≠ 坑消费者，利润率 ≠ 产品质量；⑥ 本页为家长消费科普，非投资建议。
+  </div>
+
+  <!-- 来源 -->
+  <div class='section'>
+    <h2>数据来源（可点击复核）</h2>
+    <ul class='src'>
+      <li><span class='tag green'>交易所原文·A股</span><a href='http://static.cninfo.com.cn/finalpage/2026-04-30/1225259562.PDF'>巨潮资讯：伊利股份 2025 年年度报告（2026-04-30，信永中和审计）</a>——关键数 p.7 / 经营分析 p.21-22 / 份额 p.16 / 费用附注 p.201 / 商誉 p.179 / 利润表 p.87</li>
+      <li><span class='tag green'>交易所原文·港股</span><a href='https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0327/2026032702848_c.pdf'>港交所披露易：澳优乳业 FY2025 年度业绩公告（2026-03-27）</a></li>
+      <li><span class='tag gray'>上期已核·对照</span>港交所：飞鹤 2025 年报（文件号 2026042801676_c.pdf，毛利率 65.0% / 婴配粉 73.5% / 销售费用率 39.5%）</li>
+      <li><span class='tag gray'>第三方零售口径</span>尼尔森与星图零研数据（转引自伊利年报原文，份额为终端零售口径）</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>葵爸 · 母婴消费知情权内容｜数据来自上市公司公开年报｜口径以交易所原文为准｜非投资建议</footer>
+
+<script>
+// ===== 图① 四大产品线 =====
+var el1 = echarts.init(document.getElementById('chartLines'));
+el1.setOption({
+  tooltip:{trigger:'axis'},
+  legend:{data:['营业收入(亿)','毛利率(%)'],top:0},
+  grid:{left:55,right:45,top:34,bottom:30},
+  xAxis:{type:'category',data:['液体乳','奶粉及奶制品','冷饮产品','其他']},
+  yAxis:[{type:'value',name:'亿元'},{type:'value',name:'%',max:60,axisLabel:{formatter:'{value}%'}}],
+  series:[
+    {name:'营业收入(亿)',type:'bar',data:[704.22,327.69,98.22,15.32],barWidth:42,
+     itemStyle:{color:'#3B6FD0'},label:{show:true,position:'top',formatter:'{c} 亿'}},
+    {name:'毛利率(%)',type:'line',yAxisIndex:1,data:[31.43,41.58,37.89,1.78],
+     itemStyle:{color:'#E8852B'},label:{show:true,formatter:'{c}%'}}
+  ]
+});
+// ===== 图② 每100元（集团口径）=====
+var el2 = echarts.init(document.getElementById('chart100'));
+el2.setOption({
+  tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+  legend:{data:['营业成本','销售费用','管理费用','研发费用','税金及附加','归母净利','其他净收支'],top:0},
+  grid:{left:60,right:20,top:36,bottom:30},
+  xAxis:{type:'value',max:100,name:'元'},
+  yAxis:{type:'category',data:['每 100 元出厂营收']},
+  series:[
+    {name:'营业成本',type:'bar',stack:'t',data:[65.42],itemStyle:{color:'#3B6FD0'}},
+    {name:'销售费用',type:'bar',stack:'t',data:[18.63],itemStyle:{color:'#E8852B'}},
+    {name:'管理费用',type:'bar',stack:'t',data:[4.06],itemStyle:{color:'#9AA7BE'}},
+    {name:'研发费用',type:'bar',stack:'t',data:[0.79],itemStyle:{color:'#2E9E6B'}},
+    {name:'税金及附加',type:'bar',stack:'t',data:[0.58],itemStyle:{color:'#c9d3e4'}},
+    {name:'归母净利',type:'bar',stack:'t',data:[10.0],itemStyle:{color:'#1A4FA0'}},
+    {name:'其他净收支',type:'bar',stack:'t',data:[0.52],itemStyle:{color:'#b8c4d8'}}
+  ]
+});
+// ===== 图③ 销售费用构成 =====
+var el3 = echarts.init(document.getElementById('chartSales'));
+el3.setOption({
+  tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:'{b}<br/>{a}: {c} 亿元'},
+  grid:{left:80,right:55,top:10,bottom:25},
+  xAxis:{type:'value',name:'亿元'},
+  yAxis:{type:'category',data:['广告营销费','职工薪酬','差旅费','仓储费','折旧修理费','办公费','其他','物耗劳保费']},
+  series:[{type:'bar',barWidth:16,
+    data:[
+      {value:128.2,itemStyle:{color:'#E8852B'}},
+      {value:69.22,itemStyle:{color:'#3B6FD0'}},
+      {value:4.94,itemStyle:{color:'#9AA7BE'}},
+      {value:4.94,itemStyle:{color:'#9AA7BE'}},
+      {value:4.22,itemStyle:{color:'#9AA7BE'}},
+      {value:1.28,itemStyle:{color:'#c9d3e4'}},
+      {value:2.31,itemStyle:{color:'#c9d3e4'}},
+      {value:0.34,itemStyle:{color:'#c9d3e4'}}
+    ],
+    label:{show:true,position:'right',formatter:'{c}'}}
+  ]
+});
+// ===== 图④ 四种账本对比 =====
+var el4 = echarts.init(document.getElementById('chartCmp'));
+el4.setOption({
+  tooltip:{trigger:'axis'},
+  legend:{data:['毛利率','销售费用率','归母净利率'],top:0},
+  grid:{left:55,right:20,top:34,bottom:55},
+  xAxis:{type:'category',data:['伊利·集团整体','伊利·奶粉及奶制品分部','飞鹤·集团(婴配粉为主)','澳优·伊利控股子公司'],axisLabel:{interval:0,fontSize:10.5}},
+  yAxis:{type:'value',max:80,axisLabel:{formatter:'{value}%'}},
+  series:[
+    {name:'毛利率',type:'bar',data:[34.58,41.58,65.0,38.6],itemStyle:{color:'#1A4FA0'},label:{show:true,position:'top',formatter:function(p){return p.value+'%';},fontSize:10}},
+    {name:'销售费用率',type:'bar',data:[18.63,{value:0,itemStyle:{color:'transparent'},label:{show:true,position:'top',formatter:'不披露',color:'#E8852B',fontSize:10}},39.5,25.7],itemStyle:{color:'#E8852B'},label:{show:true,position:'top',formatter:function(p){return p.value?p.value+'%':'';},fontSize:10}},
+    {name:'归母净利率',type:'bar',data:[10.0,{value:0,itemStyle:{color:'transparent'},label:{show:true,position:'top',formatter:'不披露',color:'#2E9E6B',fontSize:10}},10.71,2.4],itemStyle:{color:'#2E9E6B'},label:{show:true,position:'top',formatter:function(p){return p.value?p.value+'%':'';},fontSize:10}}
+  ]
+});
+// ===== 图⑤ 澳优 =====
+var el5 = echarts.init(document.getElementById('chartAus'));
+el5.setOption({
+  tooltip:{trigger:'axis'},
+  legend:{data:['毛利率','销售费用率','研发费率','归母净利率'],top:0},
+  grid:{left:55,right:20,top:34,bottom:30},
+  xAxis:{type:'category',data:['澳优 FY2025']},
+  yAxis:{type:'value',max:50,axisLabel:{formatter:'{value}%'}},
+  series:[
+    {name:'毛利率',type:'bar',data:[38.6],itemStyle:{color:'#1A4FA0'},label:{show:true,position:'top',formatter:'{c}%'}},
+    {name:'销售费用率',type:'bar',data:[25.7],itemStyle:{color:'#E8852B'},label:{show:true,position:'top',formatter:'{c}%'}},
+    {name:'研发费率',type:'bar',data:[1.4],itemStyle:{color:'#2E9E6B'},label:{show:true,position:'top',formatter:'{c}%'}},
+    {name:'归母净利率',type:'bar',data:[2.4],itemStyle:{color:'#d23b3b'},label:{show:true,position:'top',formatter:'{c}%'}}
+  ]
+});
+window.addEventListener('resize', function(){
+  el1.resize();el2.resize();el3.resize();el4.resize();el5.resize();
+});
+</script>
+</body>
+</html>
